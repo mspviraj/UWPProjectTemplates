@@ -150,6 +150,8 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="_binaries\Microsoft.Xaml.Interactions.dll" />
+    <Content Include="_binaries\Microsoft.Xaml.Interactivity.dll" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
