@@ -19,7 +19,7 @@ Visual Studio 2015 Project Templates for Universal Windows Platform
 7. AdaptiveTrigger changes SplitView DisplayMode at "0" and "720" widths
 
 
-**My Changes to the Windows 10 sample **
+**My Changes to the Universal Windows Sample**
 
 1. AppShell.xaml
 	* Replaced HamburgerButton ToogleButton with a Button because ToogleButton wouldn't respond to the Enter key.
@@ -58,14 +58,16 @@ When the Visual C# Project Template is used to create a New Project all the name
 2. Packaging tab
 	* Package display name
 	* Delete the Package name GUID and replace with a new one from Tools->Create GUID->#4 Registry removing the brackets
+3. If not using ARM device, switch Solution Platform to x86 or x64 
+
 
 **UWPShellTemplate Views** 
 
-1. LandingPage - good place for app features and instructions
+1. LandingPage - place for app features and instructions
 2. BasicPage - ordinary page
-3. DrillInPage - good example of Hierarchical navigation
+3. DrillInPage - example of Hierarchical navigation
 4. BasicSubPage - subPage of DrillInPage's hierarchy
-5. CommandBarPage - good example of commands and button flyouts
+5. CommandBarPage - example of commands and button flyouts
 
 Feel free to delete any of the example pages and substitute your own.
 
@@ -76,13 +78,13 @@ Remember to:
 3. Update AppShell.xaml with SplitView 'OpenPanelLength' to show complete NavMenuItem label
 
 
-**UWPSimpleTemplate** is bare bones. No SplitView but some converters. Saves creating some basic folders for a MVVM type project.
+**UWPSimpleTemplate** is bare bones. No SplitView but some converters. Saves creating basic folders for a MVVM type project.
 
 **Future Project Templates** based on Navigation Patterns:
 
 1. Master-Detail
 2. Tabs
-3. Hub & Spoke
+3. Hub
 4. Pivots
 
 	
