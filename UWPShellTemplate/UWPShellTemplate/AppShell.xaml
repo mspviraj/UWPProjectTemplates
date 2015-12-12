@@ -42,7 +42,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <RelativePanel>
+        <RelativePanel x:Name="RootRelativePanel">
             <Button Name="HamburgerButton" 
                     RelativePanel.AlignLeftWithPanel="True"
                     TabIndex="1"
@@ -71,7 +71,7 @@
                        FontWeight="Normal"
                        Margin="10,3,0,0"/>
 
-            <AutoSuggestBox Name="MyAutoSuggestBox"
+            <AutoSuggestBox Name="RootAutoSuggestBox"
                             QueryIcon="Find" 
                             PlaceholderText="Search" 
                             RelativePanel.AlignRightWithPanel="True"
@@ -134,6 +134,7 @@
                         <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
+                        <Setter Target="RootRelativePanel.HorizontalAlignment" Value="Stretch" />
                         <Setter Target="RootSplitView.DisplayMode" Value="CompactInline"/>
                         <Setter Target="RootSplitView.IsPaneOpen" Value="True"/>
                     </VisualState.Setters>
@@ -143,7 +144,10 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="RootSplitView.DisplayMode" Value="Overlay"/>
+                        <Setter Target="RootRelativePanel.HorizontalAlignment" Value="Left" />
+                        <Setter Target="RootSplitView.DisplayMode" Value="CompactOverlay"/>
+                        <Setter Target="RootAutoSuggestBox.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="RootAutoSuggestBox.(RelativePanel.Below)" Value="HamburgerButton" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

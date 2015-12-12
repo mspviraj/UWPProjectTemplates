@@ -115,6 +115,7 @@
     <Compile Include="Converters\DateTimeToDateTimeOffsetConverter.cs" />
     <Compile Include="Converters\DecimalToStringConverter.cs" />
     <Compile Include="Converters\FirstErrorConverter.cs" />
+    <Compile Include="Converters\FormattedStringConverter.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Converters\StringToDecimalConverter.cs" />
     <Compile Include="Converters\TextToHeaderVisibilityConverter.cs" />
