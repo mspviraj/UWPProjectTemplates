@@ -2,7 +2,7 @@
 Visual Studio 2015 Project Templates for Universal Windows Platform
 
 
-**Acknowledgements** - Most of the code for UWPShellTemplate came from these 2 sources
+**Acknowledgements** - Most of the code for UWPShellTemplate came from these 2 sources:
 
 1. Channel 9 Build 2015 - Mical Lewis - Universal Navigation and Commanding for Your XAML - https://channel9.msdn.com/Events/Build/2015/2-97
 2. Universal Windows Sample - https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlNavigation which is the code from the Channel 9 video.
@@ -11,15 +11,15 @@ Visual Studio 2015 Project Templates for Universal Windows Platform
 **UWPShellTemplate Features**
 
 1. AppShell with SplitView/Frame
-2. Uses custom NavMenuListView for SplitView.Pane
+2. Custom NavMenuListView for SplitView.Pane
 3. Highlights select item in NavMenuListView
 4. Keyboard support is very good
-5. Support Hierarchical navigation with a DrillinPage and a BasicSubPage
+5. Supports Hierarchical navigation with a DrillinPage and a BasicSubPage
 6. CommandBar Page uses CommandBar and Menu flyouts in CommandBar.SecondaryCommands
 7. AdaptiveTrigger changes SplitView DisplayMode at "0" and "720" widths
 
 
-**My Changes**
+**My Changes to the Windows 10 sample **
 
 1. AppShell.xaml
 	* Replaced HamburgerButton ToogleButton with a Button because ToogleButton wouldn't respond to the Enter key.
@@ -35,12 +35,12 @@ Visual Studio 2015 Project Templates for Universal Windows Platform
 	
 **Steps to make either solution a Visual Studio Project Template**:
 
-1. Main Men
+1. Visual Studio Main Menu
 2. Export Template
 3. Choose Template (Select Project Template)
 4. Select Template Options (Enter Description)
 5. Finish
-6.Project Template appears in Visual Studio under Installed -> Templates -> Visual C# Visual Studio creates a .zip file in:
+6. Project Template appears in Visual Studio under Installed -> Templates -> Visual C# Visual Studio creates a .zip file in:
 	* ..\Users\(user)\Documents\Visual Studio 2015\Templates\ProjectTemplates
 	* ..\Users\(user)\Documents\Visual Studio 2015\MyExportedTemplates
 	* ..\Users\(user)\AppData\Roaming\Microsoft\VisualStudio\14.0\ProjectTemplatesCache (after it has been used)
@@ -49,7 +49,7 @@ Visual Studio 2015 Project Templates for Universal Windows Platform
 
 **FixUps**
 
-When the Visual C# Project Template is used to create a New Project all the namespaces are converted to the New Project name but the Packages.appxmanifest still contains template names so I replace the word UWPShellTemplate with <New Project Name> in these places:
+When the Visual C# Project Template is used to create a New Project all the namespaces are converted to the New Project name but the Packages.appxmanifest still contains template names so replace the word UWPShellTemplate with <New Project Name> in these places:
 
 1. Application tab
 	* Display name
@@ -63,8 +63,8 @@ When the Visual C# Project Template is used to create a New Project all the name
 
 1. LandingPage - good place for app features and instructions
 2. BasicPage - ordinary page
-3. DrillInPage - good sample for Hierarchical navigation
-4. BasicSubPage - works with DrillInPage 
+3. DrillInPage - good example of Hierarchical navigation
+4. BasicSubPage - subPage of DrillInPage's hierarchy
 5. CommandBarPage - good example of commands and button flyouts
 
 Feel free to delete any of the example pages and substitute your own.
