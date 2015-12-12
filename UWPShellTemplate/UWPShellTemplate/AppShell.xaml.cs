@@ -70,7 +70,7 @@ namespace UWPShellTemplate {
                 //this.TogglePaneButton.Focus(FocusState.Programmatic);
             };
 
-            this.RootSplitView.RegisterPropertyChangedCallback(
+            this.splitView.RegisterPropertyChangedCallback(
                 SplitView.DisplayModeProperty,
                 (s, a) => {
                     // Ensure that we update the reported size of the TogglePaneButton when the SplitView's
@@ -82,7 +82,7 @@ namespace UWPShellTemplate {
 
             // If on a phone device that has hardware buttons then we hide the app's back button.
             if (ApiInformation.IsTypePresent("Windows.Phone.UI.Input.HardwareButtons")) {
-                this.BackButton.Visibility = Visibility.Collapsed;
+                this.backButton.Visibility = Visibility.Collapsed;
             }
 
             NavMenuList.ItemsSource = navlist;
@@ -143,7 +143,7 @@ namespace UWPShellTemplate {
         //    e.Handled = handled;
         //}
 
-        private void BackButton_Click(object sender, RoutedEventArgs e) {
+        private void backButton_Click(object sender, RoutedEventArgs e) {
             // Get a hold of the current frame so that we can inspect the app back stack.
             if (this.AppFrame == null)
                 return;
@@ -223,7 +223,7 @@ namespace UWPShellTemplate {
             ((Page)sender).Focus(FocusState.Programmatic);
             ((Page)sender).Loaded -= Page_Loaded;
             this.CheckTogglePaneButtonSizeChanged();
-            TitleTextBlock.Text = ((Page)sender).Name;
+            titleTextBlock.Text = ((Page)sender).Name;
         }
 
         #endregion
@@ -254,8 +254,8 @@ namespace UWPShellTemplate {
         /// hamburger button and trigger the event.
         /// </summary>
         private void CheckTogglePaneButtonSizeChanged() {
-            if (this.RootSplitView.DisplayMode == SplitViewDisplayMode.Inline ||
-                this.RootSplitView.DisplayMode == SplitViewDisplayMode.Overlay) {
+            if (this.splitView.DisplayMode == SplitViewDisplayMode.Inline ||
+                this.splitView.DisplayMode == SplitViewDisplayMode.Overlay) {
                 //var transform = this.TogglePaneButton.TransformToVisual(this);
                 //var rect = transform.TransformBounds(new Rect(0, 0, this.TogglePaneButton.ActualWidth, this.TogglePaneButton.ActualHeight));
                 //this.TogglePaneButtonRect = rect;
@@ -286,8 +286,8 @@ namespace UWPShellTemplate {
             }
         }
 
-        private void HamburgerButton_Click(object sender, RoutedEventArgs e) {
-            RootSplitView.IsPaneOpen = !RootSplitView.IsPaneOpen;
+        private void hamburgerButton_Click(object sender, RoutedEventArgs e) {
+            splitView.IsPaneOpen = !splitView.IsPaneOpen;
         }
 
     }

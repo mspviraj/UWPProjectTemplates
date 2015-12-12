@@ -42,8 +42,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <RelativePanel x:Name="RootRelativePanel">
-            <Button Name="HamburgerButton" 
+        <RelativePanel x:Name="relativePanel">
+            <Button Name="hamburgerButton" 
                     RelativePanel.AlignLeftWithPanel="True"
                     TabIndex="1"
                     ToolTipService.ToolTip="Menu"
@@ -53,25 +53,25 @@
                     Height="40"
                     Width="40"
                     Margin="0,0,5,0"
-                    Click="HamburgerButton_Click" />
+                    Click="hamburgerButton_Click" />
 
-            <Button Name="BackButton"
-                    RelativePanel.RightOf="HamburgerButton" 
+            <Button Name="backButton"
+                    RelativePanel.RightOf="hamburgerButton" 
                     TabIndex="2"
                     Style="{StaticResource NavigationBackButtonStyle}"
                     Visibility="{Binding AppFrame.CanGoBack, ElementName=Root, Converter={StaticResource BooleanToVisibilityConverter}}"
                     Height="40"
                     Width="40"
-                    Click="BackButton_Click"
+                    Click="backButton_Click"
                      />
 
-            <TextBlock Name="TitleTextBlock"
-                       RelativePanel.RightOf="BackButton"
+            <TextBlock Name="titleTextBlock"
+                       RelativePanel.RightOf="backButton"
                        FontSize="20"
                        FontWeight="Normal"
                        Margin="10,3,0,0"/>
 
-            <AutoSuggestBox Name="RootAutoSuggestBox"
+            <AutoSuggestBox Name="autoSuggestBox"
                             QueryIcon="Find" 
                             PlaceholderText="Search" 
                             RelativePanel.AlignRightWithPanel="True"
@@ -80,7 +80,7 @@
         </RelativePanel>
 
         <!-- Top-level navigation menu + app content -->
-        <SplitView x:Name="RootSplitView"
+        <SplitView x:Name="splitView"
                    Grid.Row="1"
                    DisplayMode="Inline"
                    OpenPaneLength="150"
@@ -114,13 +114,13 @@
             </Frame>
         </SplitView>
 
-        <!-- RJL 12/2/15 Replaced ToggleButton with the "HamburgerButton" because ToogleButton wasn't responding to Enter key only the Space key. -->
+        <!-- RJL 12/2/15 Replaced ToggleButton with the "hamburgerButton" because ToogleButton wasn't responding to Enter key only the Space key. -->
         <!-- RJL Also moved new Button into a Relative Panel that forms the Header. -->
         <!-- Declared last to have it rendered above everything else, but it needs to be the first item in the tab sequence. -->
         <!--<ToggleButton x:Name="TogglePaneButton"
                       TabIndex="1"
                       Style="{StaticResource SplitViewTogglePaneButtonStyle}"
-                      IsChecked="{Binding IsPaneOpen, ElementName=RootSplitView, Mode=TwoWay}"
+                      IsChecked="{Binding IsPaneOpen, ElementName=splitView, Mode=TwoWay}"
                       Unchecked="TogglePaneButton_Checked"
                       AutomationProperties.Name="Menu"
                       ToolTipService.ToolTip="Menu" />-->
@@ -134,9 +134,9 @@
                         <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="RootRelativePanel.HorizontalAlignment" Value="Stretch" />
-                        <Setter Target="RootSplitView.DisplayMode" Value="CompactInline"/>
-                        <Setter Target="RootSplitView.IsPaneOpen" Value="True"/>
+                        <Setter Target="relativePanel.HorizontalAlignment" Value="Stretch" />
+                        <Setter Target="splitView.DisplayMode" Value="CompactInline"/>
+                        <Setter Target="splitView.IsPaneOpen" Value="True"/>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState>
@@ -144,10 +144,10 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="RootRelativePanel.HorizontalAlignment" Value="Left" />
-                        <Setter Target="RootSplitView.DisplayMode" Value="CompactOverlay"/>
-                        <Setter Target="RootAutoSuggestBox.(RelativePanel.AlignLeftWithPanel)" Value="True" />
-                        <Setter Target="RootAutoSuggestBox.(RelativePanel.Below)" Value="HamburgerButton" />
+                        <Setter Target="relativePanel.HorizontalAlignment" Value="Left" />
+                        <Setter Target="splitView.DisplayMode" Value="CompactOverlay"/>
+                        <Setter Target="autoSuggestBox.(RelativePanel.AlignLeftWithPanel)" Value="True" />
+                        <Setter Target="autoSuggestBox.(RelativePanel.Below)" Value="hamburgerButton" />
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
