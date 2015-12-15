@@ -42,9 +42,20 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <RelativePanel x:Name="relativePanel">
+        <Grid x:Name="menuGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
             <Button Name="hamburgerButton" 
-                    RelativePanel.AlignLeftWithPanel="True"
+                    Grid.Row="0"
+                    Grid.Column="0"
                     TabIndex="1"
                     ToolTipService.ToolTip="Menu"
                     FontFamily="Segoe MDL2 Assets"
@@ -56,7 +67,8 @@
                     Click="hamburgerButton_Click" />
 
             <Button Name="backButton"
-                    RelativePanel.RightOf="hamburgerButton" 
+                    Grid.Row="0"
+                    Grid.Column="1"
                     TabIndex="2"
                     Style="{StaticResource NavigationBackButtonStyle}"
                     Visibility="{Binding AppFrame.CanGoBack, ElementName=Root, Converter={StaticResource BooleanToVisibilityConverter}}"
@@ -66,18 +78,22 @@
                      />
 
             <TextBlock Name="titleTextBlock"
-                       RelativePanel.RightOf="backButton"
+                       Grid.Row="0"
+                       Grid.Column="2"
                        FontSize="20"
                        FontWeight="Normal"
                        Margin="10,3,0,0"/>
 
             <AutoSuggestBox Name="autoSuggestBox"
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
                             QueryIcon="Find" 
                             PlaceholderText="Search" 
                             RelativePanel.AlignRightWithPanel="True"
-                            Width="200"
-                            Margin="0,5,10,0" />
-        </RelativePanel>
+                            Width="200"/>
+        </Grid>
 
         <!-- Top-level navigation menu + app content -->
         <SplitView x:Name="splitView"
@@ -134,7 +150,6 @@
                         <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="relativePanel.HorizontalAlignment" Value="Stretch" />
                         <Setter Target="splitView.DisplayMode" Value="CompactInline"/>
                         <Setter Target="splitView.IsPaneOpen" Value="True"/>
                     </VisualState.Setters>
@@ -144,10 +159,12 @@
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="relativePanel.HorizontalAlignment" Value="Left" />
                         <Setter Target="splitView.DisplayMode" Value="CompactOverlay"/>
-                        <Setter Target="autoSuggestBox.(RelativePanel.AlignLeftWithPanel)" Value="True" />
-                        <Setter Target="autoSuggestBox.(RelativePanel.Below)" Value="hamburgerButton" />
+                        <Setter Target="autoSuggestBox.(Grid.Row)" Value="1" />
+                        <Setter Target="autoSuggestBox.(Grid.Column)" Value="0" />
+                        <Setter Target="autoSuggestBox.(Grid.ColumnSpan)" Value="4" />
+                        <Setter Target="autoSuggestBox.HorizontalAlignment" Value="Left" />
+
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
