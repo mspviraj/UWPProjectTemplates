@@ -129,8 +129,8 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="_binaries\Microsoft.Xaml.Interactions.dll" />
-    <Content Include="_binaries\Microsoft.Xaml.Interactivity.dll" />
+    <Content Include="Binaries\Microsoft.Xaml.Interactions.dll" />
+    <Content Include="Binaries\Microsoft.Xaml.Interactivity.dll" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -155,11 +155,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Xaml.Interactions">
-      <HintPath>_binaries\Microsoft.Xaml.Interactions.dll</HintPath>
+    <Reference Include="Microsoft.Xaml.Interactions, Version=12.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Binaries\Microsoft.Xaml.Interactions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xaml.Interactivity">
-      <HintPath>_binaries\Microsoft.Xaml.Interactivity.dll</HintPath>
+    <Reference Include="Microsoft.Xaml.Interactivity, Version=12.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Binaries\Microsoft.Xaml.Interactivity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
