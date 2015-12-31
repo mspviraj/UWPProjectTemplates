@@ -3,14 +3,22 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UWPSimpleTemplate.Views"
+    xmlns:viewmodels="using:UWPSimpleTemplate.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     RequestedTheme="Dark"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <viewmodels:MainPageViewModel x:Key="mainPageViewModel" AppName="UWPSimpleTemplate" />
+    </Page.Resources>
+    <Page.DataContext>
+        <Binding Source="{StaticResource mainPageViewModel}" />
+    </Page.DataContext>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock 
-            Text="{StaticResource AppName}" 
+            Text="{Binding AppName}" 
             FontFamily="Times New Roman"
             FontSize="96"
             FontStyle="Italic"
