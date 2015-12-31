@@ -9,7 +9,9 @@ namespace UWPSimpleTemplate.ViewModels {
         private string appName;
         public string AppName {
             get { return appName; }
-            set { appName = value; }
+            set {
+                SetProperty<string>(ref appName, value);
+            }
         }
     }
 }
