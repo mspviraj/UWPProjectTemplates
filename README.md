@@ -87,8 +87,9 @@ Remember to:
 3. Hub
 4. Pivots
 
-	
+**PrismShellTemplate** note:
 
+For some unknown reason even though the PrismShellTemplate builds successfully, there are some code squiggles and the Prism.Unity reference is missing. If that is the case, close Visual Studio then restart it and rebuild the solution.
 
 
 
