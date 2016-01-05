@@ -78,7 +78,7 @@ Remember to:
 3. Update AppShell.xaml with SplitView 'OpenPanelLength' to show complete NavMenuItem label
 
 
-**UWPSimpleTemplate** is bare bones. No SplitView but some converters. Saves creating basic folders for a MVVM type project.
+**UWPSimpleTemplate** is bare bones. No SplitView but some converters. Saves creating basic folders for a MVVM type project. Also implements simple MVVM with Commanding.
 
 **Future Project Templates** based on Navigation Patterns:
 
