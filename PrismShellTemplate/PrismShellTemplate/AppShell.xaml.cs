@@ -28,13 +28,15 @@ namespace PrismShellTemplate {
     /// proper keyboarding navigation.
     /// </summary>
     public sealed partial class AppShell : Page {
-        // rjl: Change original Mical Lewis' code to use Prism's Navigation Frame instead of AppShell's Frame.
+        // rjl: Changed original Mical Lewis' code to use Prism's Navigation Frame instead of AppShell's Frame.
         private Frame appFrame;
         public Frame AppFrame { get { return appFrame; } }
 
         public void SetContentFrame(Frame frame) {
             splitView.Content = frame;
             appFrame = frame;
+            appFrame.Navigating += OnNavigatingToPage;
+            appFrame.Navigated += OnNavigatedToPage;
         }
 
         public void SetMenuPaneContent(UIElement content) {

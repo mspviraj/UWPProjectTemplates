@@ -36,12 +36,12 @@ namespace PrismShellTemplate {
         }
 
         // rjl: Acknowledgement
-        // CreateShell method from PrismLibrary/Prism-Samples-Windows/SplitViewSample at
-        // https://github.com/PrismLibrary/Prism-Samples-Windows
+        // CreateShell method comes from PrismLibrary/Prism-Samples-Windows/SplitViewSample at
+        //  https://github.com/PrismLibrary/Prism-Samples-Windows
         // CreateShell replaces AppShell's original Frame with the NavigationService's Frame.
         // In effect all navigation is now using Prism's NavigationService.
         // Any ViewModel can use Prism's NavigationService via Prism.Unity DependencyInjection as
-        // done in BasicPageViewModel.
+        //  done in BasicPageViewModel.
         protected override UIElement CreateShell(Frame rootFrame) {
             var shell = Container.Resolve(typeof(AppShell), "AppShell") as AppShell;
             shell.SetContentFrame(rootFrame);
