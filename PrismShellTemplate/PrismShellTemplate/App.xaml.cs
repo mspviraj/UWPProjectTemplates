@@ -35,42 +35,24 @@ namespace PrismShellTemplate {
 
         }
 
+        // rjl: Acknowledgement
+        // CreateShell method from PrismLibrary/Prism-Samples-Windows/SplitViewSample at
+        // https://github.com/PrismLibrary/Prism-Samples-Windows
+        // CreateShell replaces AppShell's original Frame with the NavigationService's Frame.
+        // In effect all navigation is now using Prism's NavigationService.
+        // Any ViewModel can use Prism's NavigationService via Prism.Unity DependencyInjection as
+        // done in BasicPageViewModel.
+        protected override UIElement CreateShell(Frame rootFrame) {
+            var shell = Container.Resolve(typeof(AppShell), "AppShell") as AppShell;
+            shell.SetContentFrame(rootFrame);
+            return shell;
+        }
+
+        // rjl: Now using Prism NavigationService for navigation rather than the original code 
+        // which used AppShell's Frame for navigation.
         protected override Task OnLaunchApplicationAsync(LaunchActivatedEventArgs args) {
-#if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached) {
-                // This just gets in the way.
-                //this.DebugSettings.EnableFrameRateCounter = true;
-            }
-#endif
-            AppShell shell = Window.Current.Content as AppShell;
-
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
-            if (shell == null) {
-                // Create a AppShell to act as the navigation context and navigate to the first page
-                shell = new AppShell();
-
-                // Set the default language
-                shell.Language = Windows.Globalization.ApplicationLanguages.Languages[0];
-                shell.AppFrame.NavigationFailed += OnNavigationFailed;
-                if (args.PreviousExecutionState == ApplicationExecutionState.Terminated) {
-                    //TODO: Load state from previously suspended application
-                }
-            }
-
-            // Place our app shell in the current Window
-            Window.Current.Content = shell;
-
-            if (shell.AppFrame.Content == null) {
-                // When the navigation stack isn't restored, navigate to the first page
-                // suppressing the initial entrance animation.
-                shell.AppFrame.Navigate(typeof(LandingPage), args.Arguments, new Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo());
-            }
-
-            // Ensure the current window is active
-            Window.Current.Activate();
-
-            return Task.FromResult<object>(null);
+            NavigationService.Navigate("Landing", null);
+            return Task.FromResult(true);
         }
 
         /// <summary>
@@ -82,6 +64,7 @@ namespace PrismShellTemplate {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
+        // rjl: Hiding SystemNavigationManager's BackButton Icon
         protected override void OnNavigated(object sender, NavigationEventArgs e) {
             base.OnNavigated(sender, e);
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;

@@ -28,6 +28,19 @@ namespace PrismShellTemplate {
     /// proper keyboarding navigation.
     /// </summary>
     public sealed partial class AppShell : Page {
+        // rjl: Change original Mical Lewis' code to use Prism's Navigation Frame instead of AppShell's Frame.
+        private Frame appFrame;
+        public Frame AppFrame { get { return appFrame; } }
+
+        public void SetContentFrame(Frame frame) {
+            splitView.Content = frame;
+            appFrame = frame;
+        }
+
+        public void SetMenuPaneContent(UIElement content) {
+            splitView.Pane = content;
+        }
+
         // Declare the top level nav items
         private List<NavMenuItem> navlist = new List<NavMenuItem>(
             new[]
@@ -89,8 +102,6 @@ namespace PrismShellTemplate {
 
             NavMenuList.ItemsSource = navlist;
         }
-
-        public Frame AppFrame { get { return this.frame; } }
 
         /// <summary>
         /// Default keyboard focus movement for any unhandled keyboarding
