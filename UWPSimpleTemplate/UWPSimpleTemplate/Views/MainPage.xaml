@@ -17,13 +17,18 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock 
-            Text="{Binding AppName}" 
-            FontFamily="Times New Roman"
-            FontSize="96"
-            FontStyle="Italic"
-            Foreground="Yellow"
+        <StackPanel
             HorizontalAlignment="Center"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Center">
+            <TextBlock Text="{Binding AppName}" 
+                    FontFamily="Times New Roman"
+                    FontSize="96"
+                    FontStyle="Italic"
+                    Foreground="Yellow" />
+            <ToggleButton x:Name="toggleButton"
+                Content="Toggle Me" 
+                    Command="{Binding ClickMeCommand}" 
+                    HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Page>
