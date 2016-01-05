@@ -117,7 +117,7 @@
                  OnNavigatedToPage we move keyboard focus to the first item on the page after it's loaded. -->
             
             <!-- rjl 1/5/16 Replaced AppShell's Frame with Prism's NavigationService Frame -->
-            <Frame x:Name="frame"
+            <!--<Frame x:Name="frame"
                    Navigating="OnNavigatingToPage"
                    Navigated="OnNavigatedToPage">
                 <Frame.ContentTransitions>
@@ -129,7 +129,7 @@
                         </NavigationThemeTransition>
                     </TransitionCollection>
                 </Frame.ContentTransitions>
-            </Frame>
+            </Frame>-->
         </SplitView>
 
         <!-- RJL 12/2/15 Replaced ToggleButton with the "HamburgerButton" because ToogleButton wasn't responding to Enter key only the Space key. -->
