@@ -115,6 +115,8 @@
 
             <!-- OnNavigatingToPage we synchronize the selected item in the nav menu with the current page.
                  OnNavigatedToPage we move keyboard focus to the first item on the page after it's loaded. -->
+            
+            <!-- rjl 1/5/16 Replaced AppShell's Frame with Prism's NavigationService Frame -->
             <Frame x:Name="frame"
                    Navigating="OnNavigatingToPage"
                    Navigated="OnNavigatedToPage">

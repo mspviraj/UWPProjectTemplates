@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -35,8 +36,14 @@ namespace PrismShellTemplate {
         public void SetContentFrame(Frame frame) {
             splitView.Content = frame;
             appFrame = frame;
+
+            // Add what was previously done in AppShell.xaml
             appFrame.Navigating += OnNavigatingToPage;
             appFrame.Navigated += OnNavigatedToPage;
+            appFrame.ContentTransitions = new Windows.UI.Xaml.Media.Animation.TransitionCollection();
+            NavigationThemeTransition navTransition = new NavigationThemeTransition();
+            navTransition.DefaultNavigationTransitionInfo = new EntranceNavigationTransitionInfo();
+            appFrame.ContentTransitions.Add(navTransition);
         }
 
         public void SetMenuPaneContent(UIElement content) {
