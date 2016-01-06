@@ -1,14 +1,14 @@
 # UWPProjectTemplates
 Visual Studio 2015 Project Templates for Universal Windows Platform
 
-**Visual Studio 2015 Project Template List**
+**List**
 
 1. UWPSimpleTemplate - bare bones MVVM support
 2. UWPShellTemplate - provides a Hamburger navigation type AppShell with 4 different types of sample Views
 3. PrismSimpleTemplate - bare bones using Prism 6 for UWP
 4. PrismShellTemplate - same as UWPShellTemplate but using Prism 6 for UWP
 
-**UWPShellTemplate** 
+**UWPShellTemplate Notes** 
 
 Acknowledgement - Most of the code for UWPShellTemplate came from these 2 sources:
 
@@ -53,22 +53,22 @@ Remember to:
 2. Update AppShell.xaml.cs with NavMenuItems (including item icon and label) corresponding to your pages.
 3. Update AppShell.xaml with SplitView 'OpenPanelLength' to show complete NavMenuItem label
 
-**UWPSimpleTemplate** 
+**UWPSimpleTemplate Notes** 
 
 Bare bones. No SplitView but some converters. Saves creating basic folders for a MVVM type project. Implements simple MVVM with Commanding.
 
-**PrismShellTemplate**
+**PrismShellTemplate Notes**
 
 For some unknown reason even though the PrismShellTemplate builds successfully, there are some code squiggles and the Prism.Unity reference is missing. If that is the case, close Visual Studio then restart it and rebuild the solution.
 
-**Steps to make any of solutions Visual Studio Project Template**
+**Steps to make any of solutions a Visual Studio Project Template**
 
 1. Open solution in Visual Studio
-2. Main Menu->File
-2. Export Template
-3. Choose Template Type (Pick Project Template)
-4. Select Template Options (Enter Description)
-5. Finish
+2. Go to Main Menu->File menu
+2. Select Export Template
+3. Choose Template Type (select Project Template)
+4. Select Template Options (enter a Description)
+5. Press Finish button
 6. Project Template appears in Visual Studio under Installed -> Templates -> Visual C# Visual Studio creates a .zip file in:
 	* ..\Users\(user)\Documents\Visual Studio 2015\Templates\ProjectTemplates
 	* ..\Users\(user)\Documents\Visual Studio 2015\MyExportedTemplates
