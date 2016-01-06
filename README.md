@@ -1,7 +1,7 @@
 # UWPProjectTemplates
 Visual Studio 2015 Project Templates for Universal Windows Platform
 
-**List of Visual Studio 2015 UWP Project Templates**
+**Visual Studio 2015 Project Template List**
 
 1. UWPSimpleTemplate - bare bones MVVM support
 2. UWPShellTemplate - provides a Hamburger navigation type AppShell with 4 different types of sample Views
@@ -17,7 +17,7 @@ Acknowledgement - Most of the code for UWPShellTemplate came from these 2 source
 
 Features:
 
-1. AppShell with SplitView/Frame
+1. AppShell with SplitView/Frame navigation pattern
 2. Custom NavMenuListView for SplitView.Pane
 3. Highlights select item in NavMenuListView
 4. Keyboard support is very good
