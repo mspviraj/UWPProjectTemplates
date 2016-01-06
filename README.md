@@ -11,10 +11,12 @@ Visual Studio 2015 Project Templates for Universal Windows Platform
 **UWPShellTemplate** 
 
 Acknowledgement - Most of the code for UWPShellTemplate came from these 2 sources:
+
 1. Channel 9 Build 2015 - Mical Lewis - Universal Navigation and Commanding for Your XAML - https://channel9.msdn.com/Events/Build/2015/2-97
 2. Universal Windows Sample - https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlNavigation which is the code from the Channel 9 video.
 
 Features:
+
 1. AppShell with SplitView/Frame
 2. Custom NavMenuListView for SplitView.Pane
 3. Highlights select item in NavMenuListView
@@ -24,6 +26,7 @@ Features:
 7. AdaptiveTrigger changes SplitView DisplayMode at "0" and "720" widths
 
 My Changes:
+
 1. AppShell.xaml
 	* Replaced HamburgerButton ToogleButton with a Button because ToogleButton wouldn't respond to the Enter key.
 	* Added HamburgerButton_Click in code behind to toggle SplitView pane.
@@ -36,12 +39,15 @@ My Changes:
 3. Changes are commented in the code.
 
 Sample Views:
+
 1. LandingPage - place for app features and instructions
 2. BasicPage - ordinary page
 3. DrillInPage - example of Hierarchical navigation
 4. BasicSubPage - subPage of DrillInPage's hierarchy
 5. CommandBarPage - example of commands and button flyouts
+
 Feel free to delete any of the example pages and substitute your own.
+
 Remember to:
 1. Give each page a name so that it's shown in the PageTitle
 2. Update AppShell.xaml.cs with NavMenuItems (including item icon and label) corresponding to your pages.
@@ -57,9 +63,10 @@ For some unknown reason even though the PrismShellTemplate builds successfully, 
 
 **Steps to make any of solutions Visual Studio Project Template**
 
-1. Visual Studio Main Menu
+1. Open solution in Visual Studio
+2. Main Menu->File
 2. Export Template
-3. Choose Template (Select Project Template)
+3. Choose Template Type (Pick Project Template)
 4. Select Template Options (Enter Description)
 5. Finish
 6. Project Template appears in Visual Studio under Installed -> Templates -> Visual C# Visual Studio creates a .zip file in:
@@ -69,6 +76,7 @@ For some unknown reason even though the PrismShellTemplate builds successfully, 
 7. To remove the Project Template just delete the .zip files from the above 3 locations.
 
 FixUps:
+
 When the Visual C# Project Template is used to create a New Project all the namespaces are converted to the New Project name but the Packages.appxmanifest still contains template names so replace the word UWPShellTemplate with <New Project Name> in these places:
 1. Application tab
 	* Display name
