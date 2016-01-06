@@ -1,15 +1,20 @@
 # UWPProjectTemplates
 Visual Studio 2015 Project Templates for Universal Windows Platform
 
+**List of Visual Studio 2015 UWP Project Templates**
 
-**Acknowledgements** - Most of the code for UWPShellTemplate came from these 2 sources:
+1. UWPSimpleTemplate - bare bones MVVM support
+2. UWPShellTemplate - provides a Hamburger navigation type AppShell with 4 different types of sample Views
+3. PrismSimpleTemplate - bare bones using Prism 6 for UWP
+4. PrismShellTemplate - same as UWPShellTemplate but using Prism 6 for UWP
 
+**UWPShellTemplate** 
+
+Acknowledgement - Most of the code for UWPShellTemplate came from these 2 sources:
 1. Channel 9 Build 2015 - Mical Lewis - Universal Navigation and Commanding for Your XAML - https://channel9.msdn.com/Events/Build/2015/2-97
 2. Universal Windows Sample - https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/XamlNavigation which is the code from the Channel 9 video.
 
-
-**UWPShellTemplate Features**
-
+Features:
 1. AppShell with SplitView/Frame
 2. Custom NavMenuListView for SplitView.Pane
 3. Highlights select item in NavMenuListView
@@ -18,9 +23,7 @@ Visual Studio 2015 Project Templates for Universal Windows Platform
 6. CommandBar Page uses CommandBar and Menu flyouts in CommandBar.SecondaryCommands
 7. AdaptiveTrigger changes SplitView DisplayMode at "0" and "720" widths
 
-
-**My Changes to the Universal Windows Sample**
-
+My Changes:
 1. AppShell.xaml
 	* Replaced HamburgerButton ToogleButton with a Button because ToogleButton wouldn't respond to the Enter key.
 	* Added HamburgerButton_Click in code behind to toggle SplitView pane.
@@ -32,8 +35,27 @@ Visual Studio 2015 Project Templates for Universal Windows Platform
 	* Commented out TextBlock in NavigationBackButtonStyle to make BackButton content just the back arrow
 3. Changes are commented in the code.
 
-	
-**Steps to make either solution a Visual Studio Project Template**:
+Sample Views:
+1. LandingPage - place for app features and instructions
+2. BasicPage - ordinary page
+3. DrillInPage - example of Hierarchical navigation
+4. BasicSubPage - subPage of DrillInPage's hierarchy
+5. CommandBarPage - example of commands and button flyouts
+Feel free to delete any of the example pages and substitute your own.
+Remember to:
+1. Give each page a name so that it's shown in the PageTitle
+2. Update AppShell.xaml.cs with NavMenuItems (including item icon and label) corresponding to your pages.
+3. Update AppShell.xaml with SplitView 'OpenPanelLength' to show complete NavMenuItem label
+
+**UWPSimpleTemplate** 
+
+Bare bones. No SplitView but some converters. Saves creating basic folders for a MVVM type project. Implements simple MVVM with Commanding.
+
+**PrismShellTemplate**
+
+For some unknown reason even though the PrismShellTemplate builds successfully, there are some code squiggles and the Prism.Unity reference is missing. If that is the case, close Visual Studio then restart it and rebuild the solution.
+
+**Steps to make any of solutions Visual Studio Project Template**
 
 1. Visual Studio Main Menu
 2. Export Template
@@ -46,11 +68,8 @@ Visual Studio 2015 Project Templates for Universal Windows Platform
 	* ..\Users\(user)\AppData\Roaming\Microsoft\VisualStudio\14.0\ProjectTemplatesCache (after it has been used)
 7. To remove the Project Template just delete the .zip files from the above 3 locations.
 
-
-**FixUps**
-
+FixUps:
 When the Visual C# Project Template is used to create a New Project all the namespaces are converted to the New Project name but the Packages.appxmanifest still contains template names so replace the word UWPShellTemplate with <New Project Name> in these places:
-
 1. Application tab
 	* Display name
 	* Entry point - keep the .App
@@ -61,35 +80,12 @@ When the Visual C# Project Template is used to create a New Project all the name
 3. If not using ARM device, switch Solution Platform to x86 or x64 
 
 
-**UWPShellTemplate Views** 
-
-1. LandingPage - place for app features and instructions
-2. BasicPage - ordinary page
-3. DrillInPage - example of Hierarchical navigation
-4. BasicSubPage - subPage of DrillInPage's hierarchy
-5. CommandBarPage - example of commands and button flyouts
-
-Feel free to delete any of the example pages and substitute your own.
-
-Remember to:
-
-1. Give each page a name so that it's shown in the PageTitle
-2. Update AppShell.xaml.cs with NavMenuItems (including item icon and label) corresponding to your pages.
-3. Update AppShell.xaml with SplitView 'OpenPanelLength' to show complete NavMenuItem label
-
-
-**UWPSimpleTemplate** is bare bones. No SplitView but some converters. Saves creating basic folders for a MVVM type project. Also implements simple MVVM with Commanding.
-
 **Future Project Templates** based on Navigation Patterns:
 
 1. Master-Detail
 2. Tabs
 3. Hub
 4. Pivots
-
-**PrismShellTemplate** note:
-
-For some unknown reason even though the PrismShellTemplate builds successfully, there are some code squiggles and the Prism.Unity reference is missing. If that is the case, close Visual Studio then restart it and rebuild the solution.
 
 
 
